@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'category',
     'accounts',
     'store',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'cart.context_processors.counter',
             ],
         },
     },
@@ -129,3 +131,14 @@ STATICFILES_DIRS =[
 #media configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT =BASE_DIR /'media'
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
+#SMTP Gmail
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'eshraghifaezeh@gmail.com'
+EMAIL_HOST_PASSWORD = '9125083faez'
+EMAIL_USE_TLS = True
